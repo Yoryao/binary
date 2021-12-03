@@ -15,57 +15,47 @@ continuar desde 5 hasta que acierte
 
 let numeroBuscado = 0;
 let numeroUsuario = 0;
-let maximo = 100;
-let minimo = 0;
-
-let intentos = 1;
+let intentos = 0;
 let arrIntentos = [];
-let ultimoIntento = -1;
+let arrNumeros = [];
 
-const elegirNumero = (min, max) => {
-  numeroBuscado = parseInt(Math.random() * (max - min) + min);
-  // console.log("Numero Objetivo " + numeroBuscado);
-  //console.log("Random Number: " + numeroBuscado);
+const elegirNumero = () => {
+  console.log("----------------------------")
+    numeroBuscado = parseInt(Math.random() * 5);
+  console.log("Random Number: " + numeroBuscado);
 };
 
-const eleccionUsuario = (min, max) => {
-  numeroUsuario = (max - min) / 2;
-  // console.log("Numero elegido: " + numeroUsuario);
+const eleccionUsuario = () => {
+  numeroUsuario = parseInt(Math.random() * 5);
+  console.log("Numero elegido: " + numeroUsuario);
 };
 
 const verificarCoincidencia = (objetivo, elegido) => {
- // console.log("Binary Search: " + numeroUsuario);
+  intentos++;
 
   if (objetivo === elegido) {
-    //console.log("Acerto el numero");
-    //console.log("Intentos: " + intentos);
+    console.log("Acerto el numero");
+    console.log("Numero elegido: " + numeroUsuario);
     arrIntentos.push(intentos);
-    intentos = 1;
+    console.log("Intentos: " + intentos);
+    console.log("----------------------------")
 
+    intentos = 0;
     numeroBuscado = 0;
     numeroUsuario = 0;
-    maximo = 100;
-    minimo = 0;
-
-} 
-  else if (elegido < objetivo) {
-    minimo = elegido;
-    numeroUsuario = Math.floor(maximo - (maximo - minimo) / 2);
-    intentos++;
+    arrNumeros = [];
+  } else if (arrNumeros.includes(elegido)) {
+    intentos--;
+    numeroUsuario = parseInt(Math.random() * 5);
+    console.log("Numero elegido: " + numeroUsuario);
     verificarCoincidencia(numeroBuscado, numeroUsuario);
-  } 
-  else {
-    maximo = elegido;
-    numeroUsuario = Math.floor(minimo + (maximo - minimo) / 2);
-    intentos++;
+  } else {
+    numeroUsuario = parseInt(Math.random() * 5);
+    arrNumeros.push(numeroUsuario);
     verificarCoincidencia(numeroBuscado, numeroUsuario);
-  }
+    
+}
 };
-
-// elegirNumero(minimo, maximo);
-// eleccionUsuario(minimo, maximo);
-
-// verificarCoincidencia(numeroBuscado, numeroUsuario);
 
 const promedio = (array) => {
   let sumando = 0;
@@ -80,12 +70,12 @@ const promedio = (array) => {
 
 const pruebas = (x) => {
   for (let i = 0; i < x; i++) {
-    elegirNumero(minimo, maximo);
-    eleccionUsuario(minimo, maximo);
+    elegirNumero();
+    eleccionUsuario();
     verificarCoincidencia(numeroBuscado, numeroUsuario);
   }
 
   promedio(arrIntentos);
 };
 
-pruebas(100000);
+pruebas(10000);
