@@ -1,9 +1,9 @@
 console.log("App Working");
 
 /*
--------------1) elegir un numero al azar entre 1 y 100. numero buscado 
+1) elegir un numero al azar entre 1 y 100. numero buscado 
 2) declarar contadores necesarios.
-3) declarar algoritmo de buqueda
+3) declarar algoritmo de busqueda
 4) elegir un numero al azar.
 5) verificar si acerto
     registrar datos.
@@ -20,41 +20,44 @@ let arrIntentos = [];
 let arrNumeros = [];
 
 const elegirNumero = () => {
-  console.log("----------------------------")
-    numeroBuscado = parseInt(Math.random() * 5);
+  numeroBuscado = parseInt(Math.random() * 5);
   console.log("Random Number: " + numeroBuscado);
 };
 
 const eleccionUsuario = () => {
   numeroUsuario = parseInt(Math.random() * 5);
-  console.log("Numero elegido: " + numeroUsuario);
+  console.log("Numero elegido Inicial: " + numeroUsuario);
 };
 
 const verificarCoincidencia = (objetivo, elegido) => {
   intentos++;
-
+  
   if (objetivo === elegido) {
-    console.log("Acerto el numero");
-    console.log("Numero elegido: " + numeroUsuario);
+      console.log("Acerto el numero");
+      //console.log("Numero elegido acertado: " + numeroUsuario);
+      console.log("Numeros: " + arrNumeros);
+    arrNumeros.push(numeroUsuario);
     arrIntentos.push(intentos);
     console.log("Intentos: " + intentos);
-    console.log("----------------------------")
+    console.log("----------------------------");
 
     intentos = 0;
     numeroBuscado = 0;
     numeroUsuario = 0;
     arrNumeros = [];
-  } else if (arrNumeros.includes(elegido)) {
+
+  } else if (arrNumeros.includes(numeroUsuario)) {
     intentos--;
     numeroUsuario = parseInt(Math.random() * 5);
-    console.log("Numero elegido: " + numeroUsuario);
+    console.log("Numero ya elegido. Elija Otro: " + numeroUsuario );
     verificarCoincidencia(numeroBuscado, numeroUsuario);
   } else {
-    numeroUsuario = parseInt(Math.random() * 5);
-    arrNumeros.push(numeroUsuario);
+      numeroUsuario = parseInt(Math.random() * 5);
+    console.log("Ese numero no es. Elija Otro: " + numeroUsuario)
+    // if(!(arrNumeros.includes(numeroUsuario))){
+         arrNumeros.push(numeroUsuario);
     verificarCoincidencia(numeroBuscado, numeroUsuario);
-    
-}
+  }
 };
 
 const promedio = (array) => {
@@ -78,4 +81,4 @@ const pruebas = (x) => {
   promedio(arrIntentos);
 };
 
-pruebas(10000);
+pruebas(5);
