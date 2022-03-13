@@ -1,5 +1,6 @@
 console.log("App Working");
 
+
 /*
 1) elegir un numero al azar entre 1 y 100. numero buscado 
 2) declarar contadores necesarios.
@@ -12,6 +13,7 @@ console.log("App Working");
 8) elegir numero al azar dentro del rango
 continuar desde 5 hasta que acierte
 */
+
 
 let numeroBuscado = 0;
 let numeroUsuario = 0;

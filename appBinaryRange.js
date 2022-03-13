@@ -1,4 +1,4 @@
-console.log("App Working - binary");
+console.log("App Working - binaryRange");
 
 /*
 -------------1) elegir un numero al azar entre 1 y 100. numero buscado 
@@ -18,6 +18,10 @@ let minimo = 0;
 let numeroBuscado = 0;
 let numeroUsuario = 0;
 
+let indice = .5;
+
+//el error se produce al pasar de .57 a .56
+
 let intentos = 1;
 let arrIntentos = [];
 let ultimoIntento = -1;
@@ -25,19 +29,19 @@ let ultimoIntento = -1;
 const elegirNumero = (min, max) => {
   numeroBuscado = parseInt(Math.random() * (max - min) + min);
   // console.log("Numero Objetivo " + numeroBuscado);
-//  console.log("Random Number: " + numeroBuscado);
+ // console.log("Random Number: " + numeroBuscado);
 };
 
 const eleccionUsuario = (min, max) => {
-  numeroUsuario = (max - min) / 2;
-//  console.log("Numero elegido: " + numeroUsuario);
+  numeroUsuario = (max - min) * indice;
+  // console.log("Numero elegido inicial: " + numeroUsuario);
 };
 
 const verificarCoincidencia = (objetivo, elegido) => {
- //console.log("Binary Search: " + numeroUsuario);
+//  console.log("Binary Search posterior: " + numeroUsuario);
 
   if (objetivo === elegido) {
-  //  console.log("Acerto el numero en " + intentos + " intentos.");
+    // console.log("Acerto el numero en " + intentos + " intentos.");
     arrIntentos.push(intentos);
     intentos = 1;
 
@@ -49,13 +53,20 @@ const verificarCoincidencia = (objetivo, elegido) => {
 } 
   else if (elegido < objetivo) {
     minimo = elegido;
-    numeroUsuario = Math.floor(maximo - (maximo - minimo) / 2);
+
+    numeroUsuario = Math.floor(minimo + ((maximo - minimo) * indice));
+
+
+    // numeroUsuario = Math.floor(maximo - (maximo - minimo) *.75);
     intentos++;
     verificarCoincidencia(numeroBuscado, numeroUsuario);
   } 
   else {
     maximo = elegido;
-    numeroUsuario = Math.floor(minimo + (maximo - minimo) / 2);
+    numeroUsuario = Math.floor(minimo + ((maximo - minimo) * indice));
+
+
+    // numeroUsuario = Math.floor(minimo + (maximo - minimo) *.75);
     intentos++;
     verificarCoincidencia(numeroBuscado, numeroUsuario);
   }
@@ -87,4 +98,4 @@ const pruebas = (pruebas, rangoMinimo, rangoMaximo) => {
   promedio(arrIntentos);
 };
 
-pruebas(100, 0, 100);
+pruebas(1000, 0, 100);
