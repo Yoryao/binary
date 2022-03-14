@@ -14,20 +14,21 @@ console.log("App Working");
 continuar desde 5 hasta que acierte
 */
 
-
+ let index = document.getElementsByName("testRange")
 let numeroBuscado = 0;
 let numeroUsuario = 0;
 let intentos = 0;
 let arrIntentos = [];
 let arrNumeros = [];
+let prueba = document.getElementsByName("testQuantity")
 
 const elegirNumero = () => {
-  numeroBuscado = parseInt(Math.random() * 5);
+  numeroBuscado = parseInt(Math.random() * index);
   console.log("Random Number: " + numeroBuscado);
 };
 
 const eleccionUsuario = () => {
-  numeroUsuario = parseInt(Math.random() * 5);
+  numeroUsuario = parseInt(Math.random() * index);
   console.log("Numero elegido Inicial: " + numeroUsuario);
 };
 
@@ -36,7 +37,7 @@ const verificarCoincidencia = (objetivo, elegido) => {
   
   if (objetivo === elegido) {
       console.log("Acerto el numero");
-      //console.log("Numero elegido acertado: " + numeroUsuario);
+      console.log("Numero elegido acertado: " + numeroUsuario);
       console.log("Numeros: " + arrNumeros);
     arrNumeros.push(numeroUsuario);
     arrIntentos.push(intentos);
@@ -83,4 +84,11 @@ const pruebas = (x) => {
   promedio(arrIntentos);
 };
 
-pruebas(5);
+
+
+//pruebas(prueba);
+
+
+// let tryButton = document.getElementById("tryBtn")
+
+// tryButton.onclick((prueba)=>pruebas(prueba));
