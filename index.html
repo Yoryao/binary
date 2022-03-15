@@ -22,33 +22,34 @@
 
     <div class="infoContainer">
       <div class="form-check form-check-inline">
+        <form name="tabla" action="">
         <p>Amplitud de busqueda</p>
         <div>
-          <input class="form-check-input" type="radio" name="testRange" id="testRange1H00" value="100">
+          <input class="form-check-input" type="radio" name="testRange" id="testRange1H00" value="10">
           <label class="form-check-label" for="testRange1H">100</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="testRange" id="testRange1T" value="10000">
+          <input class="form-check-input" type="radio" name="testRange" id="testRange1T" value="100">
           <label class="form-check-label" for="testRange1T">10000</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="testRange" id="testRange1M" value="1000000">
+          <input class="form-check-input" type="radio" name="testRange" id="testRange1M" value="1000">
           <label class="form-check-label" for="testRange1M">1000000</label>
         </div>
-      </div>
+      
 
       <div class="form-check form-check-inline">
         <p>Cantidad de Pruebas de busqueda</p>
         <div>
-          <input class="form-check-input" type="radio" name="testQuantity" id="testQuantity1H" value="100">
+          <input class="form-check-input2" type="radio" name="testQuantity" id="testQuantity1H" value="3">
           <label class="form-check-label" for="testQuantity1H">100</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="testQuantity" id="testQuantity1T" value="10000">
+          <input class="form-check-input2" type="radio" name="testQuantity" id="testQuantity1T" value="10000">
           <label class="form-check-label" for="testQuantity1T">10000</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="testQuantity" id="testQuantity1M" value="1000000">
+          <input class="form-check-input2" type="radio" name="testQuantity" id="testQuantity1M" value="1000000">
           <label class="form-check-label" for="testQuantity1M">1000000</label>
         </div>
       </div>
@@ -56,13 +57,13 @@
 
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" id="clearBtn" class="btn btn-danger">Clear</button>
-        <button type="button" id="tryBtn" onclick=pruebas() class="btn btn-success">Try</button>
+        <button type="button" id="tryBtn" class="btn btn-success">Try</button>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Promedio de Intentos</span>
-        <input type="text" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default">
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -85,8 +86,9 @@
 
 
 
-
   <script src="./app2.js"></script>
+  <!-- <script src="./prueba.js"></script> -->
+
   <!-- <script src="./appRange.js"></script> -->
   <!-- <script src="./appBinary.js"></script> -->
   <!-- <script src="./appBinaryRange.js"></script> -->
