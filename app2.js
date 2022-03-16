@@ -66,7 +66,7 @@ const verificarCoincidencia = (objetivo, elegido) => {
   }
 };
 
-const promedio = (array) => {
+const promedio = (array, tipo) => {
   let sumando = 0;
 
   for (let i = 0; i < array.length; i++) {
@@ -74,9 +74,15 @@ const promedio = (array) => {
   }
   console.log("el promedio es " + sumando / array.length);
 
-let resultado = sumando/array.length;
+if ("a" === tipo){
+  let resultado = sumando/array.length;
 let verResultado = document.getElementById("inputGroup-sizing-default")
 verResultado.innerText =`En promedio de acierto es con ${resultado} intentos.`
+} else if ("b" === tipo){
+  let resultado = sumando/array.length;
+let verResultado = document.getElementById("inputGroup-sizing-defaultB")
+verResultado.innerText =`En promedio de acierto es con ${resultado} intentos.`
+}
 
 };
 
@@ -91,7 +97,7 @@ const probar = (cantidadPruebas, cantidadNumeros) => {
     //COMIENZO LA ITERACION DE LOS NUMEROS PARA ACERTAR
     verificarCoincidencia(numeroBuscado, numeroUsuario);
   }
-  promedio(arrIntentos);
+  promedio(arrIntentos, "a");
 };
 
 //CAPTURO EL BOTON EJECUTAR.
@@ -106,3 +112,55 @@ ejecutar.addEventListener("click", () => {
   //EJECUTO LA FUNCION CON LAS VARIABLES DEL USUARIO
   probar(cantidadPruebas, cantidadNumeros);
 });
+
+const verificarCoincidenciaB = (objetivo) => {
+  console.log("Numero elegido: " + numeroUsuario);
+
+  intentos++;
+  if (objetivo === numeroUsuario) {
+    // arrNumeros.push(numeroUsuario);
+    arrNumeros.push(numeroUsuario);
+    console.log("Acerto el numero. Era el " + numeroUsuario + ".");
+    console.log("Numeros: " + arrNumeros);
+    arrIntentos.push(intentos);
+    console.log("Intentos: " + intentos);
+    console.log("----------------------------");
+
+    intentos = 0;
+    numeroBuscado = 0;
+    numeroUsuario = 0;
+    arrNumeros = [];
+  } else {
+    arrNumeros.push(numeroUsuario);
+    numeroUsuario++;
+    console.log("Ese numero no es. Elija Otro: " + numeroUsuario);
+    verificarCoincidenciaB(objetivo);
+  }
+};
+
+
+const probarB = (cantidadPruebas, cantidadNumeros) => {
+  //EJECUTO EL BUCLE PARA LAS PRUEBAS
+  for (let i = 0; i < cantidadPruebas; i++) {
+    //EJECUTO LA FUNCION PARA SORTEAR EL NUMERO
+    elegirNumero(cantidadNumeros);
+    //EJECUTO LA PRIMERA ELECCION DEL USUARIO
+   // eleccionUsuario(cantidadNumeros);
+    //COMIENZO LA ITERACION DE LOS NUMEROS PARA ACERTAR
+    verificarCoincidenciaB(numeroBuscado);
+  }
+  promedio(arrIntentos, "b" );
+};
+
+const ejecutarB = document.getElementById("tryBtnB");
+
+//LE ASIGNO UNA ESCUCHA AL EVENTO CLICK.
+ejecutarB.addEventListener("click", () => {
+  //CAPTURO LAS OPCIONES DEL USUARIO EN 2 VARIABLES
+  let cantidadNumeros = document.forms["tablaB"]["testRangeB"].value;
+  let cantidadPruebas = document.forms["tablaB"]["testQuantityB"].value;
+
+  //EJECUTO LA FUNCION CON LAS VARIABLES DEL USUARIO
+  probarB(cantidadPruebas, cantidadNumeros);
+});
+
