@@ -17,71 +17,71 @@ let maximo = 0;
 let minimo = 0;
 let numeroBuscadoBinary = 0;
 let numeroUsuario = 0;
-let intentos = 0;
-let arrIntentos = [];
+let intentosR = 0;
+let arrIntentosR = [];
 let ultimoIntento = -1;
 
-const elegirNumero = (min, max) => {
+const elegirNumeroR = (min, max) => {
   numeroBuscadoBinary = parseInt(Math.random() * (max - min) + min);
   console.log("Random Number: " + numeroBuscadoBinary);
 };
 
-const eleccionUsuario = (min, max) => {
+const eleccionUsuarioR = (min, max) => {
   numeroUsuario = (max - min) / 2;
   console.log("Binary Search: " + numeroUsuario);
 };
 
-const verificarCoincidencia = (objetivo, elegido) => {
+const verificarCoincidenciaR = (objetivo, elegido) => {
 
 
   if (objetivo === elegido) {
-   intentos++;
-    console.log("Acerto el numero en " + intentos + " intentos.");
-    arrIntentos.push(intentos);
+   intentosR++;
+    console.log("Acerto el numero en " + intentosR + " intentosR.");
+    arrIntentosR.push(intentosR);
 
     numeroBuscadoBinary = 0;
     numeroUsuario = 0;
     maximo = 100;
     minimo = 0;
     contador = 0; 
-intentos = 0;
+intentosR = 0;
 
     console.log("----------------------------");
 
 } 
   else if (objetivo > elegido) {
-   intentos++;
+   intentosR++;
     
     minimo = elegido;
     numeroUsuario = Math.floor(maximo - (maximo - minimo) / 2);
     console.log("Ese numero no es, es muy chico. Elija Otro: " + numeroUsuario);
-    verificarCoincidencia(numeroBuscadoBinary, numeroUsuario);
+    verificarCoincidenciaR(numeroBuscadoBinary, numeroUsuario);
   } 
   else {
    
-    intentos++;
+    intentosR++;
 
     maximo = elegido;
     numeroUsuario = Math.floor(minimo + (maximo - minimo) / 2);
     console.log("Ese numero no es, es muy grande. Elija Otro: " + numeroUsuario);
 
-    verificarCoincidencia(numeroBuscadoBinary, numeroUsuario);
+    verificarCoincidenciaR(numeroBuscadoBinary, numeroUsuario);
   }
 };
 
-const promedio = (array) => {
+const promedioR = (array) => {
   let sumando = 0;
 
   for (let i = 0; i < array.length; i++) {
     sumando += array[i];
   }
 
-  console.log(arrIntentos);
+  console.log(arrIntentosR);
 
 
   let resultado = sumando/array.length;
   let verResultado = document.getElementById("inputGroup-sizing-defaultC");
-verResultado.innerText =`En promedio de acierto es con ${resultado} intentos.`;
+verResultado.innerText =`En promedio de acierto es con ${resultado} intentosR.`;
 
 
 
@@ -91,12 +91,12 @@ verResultado.innerText =`En promedio de acierto es con ${resultado} intentos.`;
 
 const probarC = (pruebas, rangoMinimo, rangoMaximo) => {
   for (let i = 0; i < pruebas; i++) {
-    elegirNumero(rangoMinimo, rangoMaximo);
-    eleccionUsuario(rangoMinimo, rangoMaximo);
-    verificarCoincidencia(numeroBuscadoBinary, numeroUsuario);
+    elegirNumeroR(rangoMinimo, rangoMaximo);
+    eleccionUsuarioR(rangoMinimo, rangoMaximo);
+    verificarCoincidenciaR(numeroBuscadoBinary, numeroUsuario);
   }
 
-  promedio(arrIntentos);
+  promedioR(arrIntentosR);
 };
 
 

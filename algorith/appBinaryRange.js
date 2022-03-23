@@ -13,90 +13,90 @@ console.log("App Working - binaryRange");
 continuar desde 5 hasta que acierte
 */
 
-let maximo = 0;
-let minimo = 0;
-let numeroBuscadoBinary = 0;
-let numeroUsuario = 0;
-let intentos = 0;
-let arrIntentos = [];
-let ultimoIntento = -1;
+let maximoD = 0;
+let minimoD = 0;
+let numeroBuscadoBinaryD = 0;
+let numeroUsuarioD = 0;
+let intentosB = 0;
+let arrIntentosB = [];
+let ultimoIntentoD = -1;
 
-const elegirNumero = (min, max) => {
-  numeroBuscadoBinary = parseInt(Math.random() * (max - min) + min);
-  console.log("Random Number: " + numeroBuscadoBinary);
+const elegirNumeroB = (min, max) => {
+  numeroBuscadoBinaryD = parseInt(Math.random() * (max - min) + min);
+  console.log("Random Number: " + numeroBuscadoBinaryD);
 };
 
-const eleccionUsuario = (min, max) => {
-  numeroUsuario = (max - min) * 0.60;
-  console.log("Binary Search: " + numeroUsuario);
+const eleccionUsuarioB = (min, max) => {
+  numeroUsuarioD = (max - min) * 0.75;
+  console.log("Binary Search: " + numeroUsuarioD);
 };
 
-const verificarCoincidencia = (objetivo, elegido) => {
+const verificarCoincidenciaD = (objetivo, elegido) => {
 
 
   if (objetivo === elegido) {
-   intentos++;
-    console.log("Acerto el numero en " + intentos + " intentos.");
-    arrIntentos.push(intentos);
+   intentosB++;
+    console.log("Acerto el numero en " + intentosB + " intentosB.");
+    arrIntentosB.push(intentosB);
 
-    numeroBuscadoBinary = 0;
-    numeroUsuario = 0;
-    maximo = 100;
-    minimo = 0;
+    numeroBuscadoBinaryD = 0;
+    numeroUsuarioD = 0;
+    maximoD = 100;
+    minimoD = 0;
     contador = 0; 
-intentos = 0;
+intentosB = 0;
 
     console.log("----------------------------");
 
 } 
   else if (objetivo > elegido) {
-   intentos++;
+   intentosB++;
     
-    minimo = elegido;
-    numeroUsuario = Math.floor(minimo + (maximo - minimo) * .60);
-    console.log("Ese numero no es, es muy chico. Elija Otro: " + numeroUsuario);
-    verificarCoincidencia(numeroBuscadoBinary, numeroUsuario);
+    minimoD = elegido;
+    numeroUsuarioD = Math.floor(minimoD + (maximoD - minimoD) * .75);
+    console.log("Ese numero no es, es muy chico. Elija Otro: " + numeroUsuarioD);
+    verificarCoincidenciaD(numeroBuscadoBinaryD, numeroUsuarioD);
   } 
   else {
    
-    intentos++;
+    intentosB++;
 
-    maximo = elegido;
-    numeroUsuario = Math.floor(minimo + (maximo - minimo) * .60);
-    console.log("Ese numero no es, es muy grande. Elija Otro: " + numeroUsuario);
+    maximoD = elegido;
+    numeroUsuarioD = Math.floor(minimoD + (maximoD - minimoD) * .75);
+    console.log("Ese numero no es, es muy grande. Elija Otro: " + numeroUsuarioD);
 
-    verificarCoincidencia(numeroBuscadoBinary, numeroUsuario);
+    verificarCoincidenciaD(numeroBuscadoBinaryD, numeroUsuarioD);
   }
 };
 
-const promedio = (array) => {
+const promedioD = (array) => {
   let sumando = 0;
 
   for (let i = 0; i < array.length; i++) {
     sumando += array[i];
   }
 
-  console.log(arrIntentos);
+  console.log(arrIntentosB);
 
 
   let resultado = sumando/array.length;
   let verResultado = document.getElementById("inputGroup-sizing-defaultD");
-verResultado.innerText =`En promedio de acierto es con ${resultado} intentos.`;
-console.log(`En promedio de acierto es con ${resultado} intentos.`)
+verResultado.innerText =`En promedio de acierto es con ${resultado} intentosB.`;
+console.log(`En promedio de acierto es con ${resultado} intentosB.`)
 
-arrIntentos=[];
+arrIntentosB=[];
 
 
 };
 
-const probarC = (pruebas, rangoMinimo, rangoMaximo) => {
+const probarCD = (pruebas, rangoMinimoD, rangoMaximoD) => {
   for (let i = 0; i < pruebas; i++) {
-    elegirNumero(rangoMinimo, rangoMaximo);
-    eleccionUsuario(rangoMinimo, rangoMaximo);
-    verificarCoincidencia(numeroBuscadoBinary, numeroUsuario);
+    elegirNumeroB(rangoMinimoD, rangoMaximoD);
+    eleccionUsuarioB(rangoMinimoD, rangoMaximoD);
+    verificarCoincidenciaD(numeroBuscadoBinaryD, numeroUsuarioD);
   }
 
-  promedio(arrIntentos);
+  promedioD(arrIntentosB);
 };
 
 
@@ -106,8 +106,8 @@ ejecutarD.addEventListener("click", () =>{
   
   let cantidadNumeros = document.forms["tablaD"]["testRangeD"].value;
   let cantidadPruebas = document.forms["tablaD"]["testQuantityD"].value;
-  maximo = cantidadNumeros;
+  maximoD = cantidadNumeros;
 
 
-  probarC(cantidadPruebas, minimo, cantidadNumeros);
+  probarCD(cantidadPruebas, minimoD, cantidadNumeros);
 })
