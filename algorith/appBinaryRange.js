@@ -77,7 +77,6 @@ const promedioBinarioRango = (array) => {
 
   let verResultado = document.getElementById("inputGroup-sizing-defaultC");
 verResultado.innerText =`En promedio de acierto es con ${valorPromedio} intentos.`;
-console.log(`En promedio de acierto es con ${valorPromedio} intentos.`)
 
 arrIntentosBinarioRango=[];
 
