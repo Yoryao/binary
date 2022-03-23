@@ -100,8 +100,8 @@ const probarC = (pruebas, rangoMinimo, rangoMaximo) => {
 };
 
 
-let ejecutarC = document.getElementById("tryBtnC");
-ejecutarC.addEventListener("click", () =>{
+let ejecutarR = document.getElementById("tryBtnC");
+ejecutarR.addEventListener("click", () =>{
   console.log("escuchando el evento")
   
   let cantidadNumeros = document.forms["tablaC"]["testRangeC"].value;
