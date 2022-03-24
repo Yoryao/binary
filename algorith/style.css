@@ -20,20 +20,27 @@ h1 {
     display: inline-flex;
     flex-direction: row;
     width: 100%;
-    padding: 15px 20px;
+    /* padding: 15px 20px; */
     border: 2px red solid;
-
+    justify-items: space-around;
+    justify-content: space-around;
+    
 }
 
 .card {
     border: 2px black solid;
-    width: 25%;
+    width: 22%;
 }
+
 
 h5 {
     width: 90%;
     text-align: left;
     font-size: .8em;
+}
+
+h3 {
+    width: 95%;
 }
 
 .rangeContainer {
@@ -53,4 +60,12 @@ h5 {
 
 .input-group {
     justify-content: center;
+}
+
+.input-group-text {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-bottom: 5px;
 }

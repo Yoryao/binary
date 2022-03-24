@@ -1,18 +1,3 @@
-console.log("App Working");
-
-/*
-1) elegir un numero al azar entre 1 y 100. numero buscado 
-2) declarar contadores necesarios.
-3) declarar algoritmo de busqueda
-4) elegir un numero al azar.
-5) verificar si acerto
-    registrar datos.
-6) definir la mitad del rango
-7) preguntar si es mayor o menor
-8) elegir numero al azar dentro del rango
-continuar desde 5 hasta que acierte
-*/
-
 let numeroBuscado = 0;
 let numeroUsuarioA = 0;
 let numeroIndice = 0;
@@ -24,12 +9,10 @@ let arrNumeros = [];
 const elegirNumero = (index) => {
   numeroIndice = index;
   numeroBuscado = parseInt(Math.random() * index);
-  console.log("Random Number: " + numeroBuscado);
 };
 
 const eleccionUsuario = (index) => {
   numeroUsuarioA = parseInt(Math.random() * index);
-  console.log("Numero elegido Inicial: " + numeroUsuarioA);
 };
 
 const verificarCoincidencia = (objetivo, elegido) => {
@@ -67,7 +50,6 @@ const promedio = (array, tipo) => {
   }
 
   let valorPromedio = parseInt(sumando / array.length);
-  console.log("el promedio es " + valorPromedio);
 
   if ("a" === tipo) {
     let verResultado = document.getElementById("inputGroup-sizing-default");
@@ -97,16 +79,11 @@ ejecutar.addEventListener("click", () => {
 });
 
 const verificarCoincidenciaB = (objetivo) => {
-  console.log("Numero elegido: " + numeroUsuarioA);
 
   intentos++;
   if (objetivo === numeroUsuarioA) {
     arrNumeros.push(numeroUsuarioA);
-    console.log("Acerto el numero. Era el " + numeroUsuarioA + ".");
-    console.log("Numeros: " + arrNumeros);
     arrIntentos.push(intentos);
-    console.log("Intentos: " + intentos);
-    console.log("----------------------------");
 
     intentos = 0;
     numeroBuscado = 0;
@@ -115,7 +92,6 @@ const verificarCoincidenciaB = (objetivo) => {
   } else {
     arrNumeros.push(numeroUsuarioA);
     numeroUsuarioA++;
-    console.log("Ese numero no es. Elija Otro: " + numeroUsuarioA);
     verificarCoincidenciaB(objetivo);
   }
 };
@@ -133,6 +109,5 @@ const ejecutarB = document.getElementById("tryBtnSecuencial");
 ejecutarB.addEventListener("click", () => {
   let cantidadNumeros = document.forms["tablaB"]["testRangeB"].value;
   let cantidadPruebas = document.forms["tablaB"]["testQuantityB"].value;
-  console.log("probando app 2");
   probarB(cantidadPruebas, cantidadNumeros);
 });

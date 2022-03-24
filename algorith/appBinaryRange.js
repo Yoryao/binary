@@ -8,20 +8,16 @@ let arrIntentosBinarioRango = [];
 
 const elegirNumeroBinarioRango = (min, max) => {
   numeroBuscadoBinarioRango = parseInt(Math.random() * (max - min) + min);
-  console.log("Random Number: " + numeroBuscadoBinarioRango);
 };
 
 const eleccionUsuarioBinarioRango = (min, max) => {
   numeroUsuarioBinarioRango = (max - min) * 0.75;
-  console.log("Binary Search: " + numeroUsuarioBinarioRango);
 };
 
 const verificarCoincidenciaBinarioRango = (objetivo, elegido) => {
 
-
   if (objetivo === elegido) {
    intentosBinarioRango++;
-    console.log("Acerto el numero en " + intentosBinarioRango + " intentos.");
     arrIntentosBinarioRango.push(intentosBinarioRango);
 
     numeroBuscadoBinarioRango = 0;
@@ -30,7 +26,6 @@ const verificarCoincidenciaBinarioRango = (objetivo, elegido) => {
     minimoBinarioRango = 0;
     contador = 0; 
     intentosBinarioRango = 0;
-    console.log("----------------------------");
 
 } 
   else if (objetivo > elegido) {
@@ -38,24 +33,19 @@ const verificarCoincidenciaBinarioRango = (objetivo, elegido) => {
     
     minimoBinarioRango = elegido;
     numeroUsuarioBinarioRango = Math.floor(minimoBinarioRango + (maximoBinarioRango - minimoBinarioRango) * .75);
-    console.log("Ese numero no es, es muy chico. Elija Otro: " + numeroUsuarioBinarioRango);
     verificarCoincidenciaBinarioRango(numeroBuscadoBinarioRango, numeroUsuarioBinarioRango);
   } 
   else {
    
     intentosBinarioRango++;
-
     maximoBinarioRango = elegido;
     numeroUsuarioBinarioRango = Math.floor(minimoBinarioRango + (maximoBinarioRango - minimoBinarioRango) * .75);
-    console.log("Ese numero no es, es muy grande. Elija Otro: " + numeroUsuarioBinarioRango);
-
     verificarCoincidenciaBinarioRango(numeroBuscadoBinarioRango, numeroUsuarioBinarioRango);
   }
 };
 
 const promedioBinarioRango = (array) => {
   let sumando = 0;
-
   for (let i = 0; i < array.length; i++) {
     sumando += array[i];
   }
@@ -67,7 +57,6 @@ const promedioBinarioRango = (array) => {
 verResultado.innerText =`En promedio de acierto es con ${valorPromedio} intentos.`;
 
 arrIntentosBinarioRango=[];
-
 
 };
 
