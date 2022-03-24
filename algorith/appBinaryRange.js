@@ -1,15 +1,3 @@
-/*
-1) elegir un numero al azar entre 1 y 100. numero buscado 
-2) declarar contadores necesarios.
-3) declarar algoritmo de buqueda
-4) elegir un numero al azar.
-5) verificar si acerto
-    registrar datos.
-6) definir la mitad del rango
-7) preguntar si es mayor o menor
-8) elegir numero al azar dentro del rango
-continuar desde 5 hasta que acierte
-*/
 
 let maximoBinarioRango = 0;
 let minimoBinarioRango = 0;
