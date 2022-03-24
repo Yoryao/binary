@@ -1,6 +1,5 @@
 body {
     background-color: antiquewhite;
- 
 }
 
 h1 {
@@ -10,8 +9,12 @@ h1 {
 }
 
 #subTitle {
+    width: 90%;
     padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    justify-content: center;
     font-size: 1.5em;
     font-weight: 400;
 }
@@ -19,53 +22,66 @@ h1 {
 .infoContainer {
     display: inline-flex;
     flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
     width: 100%;
-    /* padding: 15px 20px; */
     border: 2px red solid;
-    justify-items: space-around;
     justify-content: space-around;
-    
 }
 
 .card {
+    padding: 10px 15px 10px 15px;
     border: 2px black solid;
-    width: 22%;
+    border-radius: 5%;
+    background-color: azure;
+    width: 20%;
 }
 
-
-h5 {
-    width: 90%;
-    text-align: left;
-    font-size: .8em;
-}
 
 h3 {
-    width: 95%;
+width: 95%;
+text-align: center;
+}
+
+h5 {
+    width: 98%;
+    text-align: justify;
+    font-size: .8em;
+  height: 100px;
+  
 }
 
 .rangeContainer {
-    width: 90%;
+    width: 98%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid rgb(133, 35, 35);
     border-radius: 5px;
 }
 
 .btnGroup{
-    width: 90%;
-    padding: 10px;
-    justify-content: center;
-}
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 5px;
+    justify-content: space-evenly;
+    width: 98%;
+  }
 
 .input-group {
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .input-group-text {
+    display:inline-block;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    margin-bottom: 5px;
+    height: 70px;
+    background-color: red;
+    margin: 10px auto 10px auto;
+    text-align: center;
+    align-content: center;
+    align-items: center;    
 }
